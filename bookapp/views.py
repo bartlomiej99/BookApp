@@ -14,8 +14,8 @@ class HomePageView(View):
     method POST search for books in database"""
     def get(self, request):
         form = BookSearchForm()
-        books = Book.objects.all().order_by('id')
-        return render(request, 'homepage.html', {'form': form, 'books': books})
+        book = Book.objects.all().order_by('id')
+        return render(request, 'homepage.html', {'form': form, 'books': book})
 
     def post(self, request):
         form = BookSearchForm(request.POST)
